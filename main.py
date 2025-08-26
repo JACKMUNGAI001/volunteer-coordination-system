@@ -5,6 +5,7 @@ from tabulate import tabulate
 
 @click.group()
 def cli():
+    """Volunteer Coordination System CLI"""
     pass
 
 @cli.command()
