@@ -1,6 +1,7 @@
 import click
 from crud import create_volunteer, create_event, list_volunteers, list_events, assign_volunteer_to_event
 from models import Base, engine
+from tabulate import tabulate
 
 @click.group()
 def cli():
@@ -32,8 +33,13 @@ def add_event(title, description):
 def assign(volunteer_id, event_id):
     assign_volunteer_to_event(volunteer_id, event_id)
     click.echo(f"Volunteer {volunteer_id} assigned to event {event_id}.")
-  
-   
+
+@cli.command()
+def volunteers():
+    data = list_volunteers()
+    table = [(v.id, v.name, v.email) for v in data]
+    click.echo(tabulate(table, headers=["ID", "Name", "Email"]))
+ 
 
 if __name__ == "__main__":
     cli()
