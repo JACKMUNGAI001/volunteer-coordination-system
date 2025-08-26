@@ -25,3 +25,10 @@ def assign_volunteer_to_event(volunteer_id, event_id):
     session.commit()
     session.close()
     return link
+
+def list_volunteers():
+    session = SessionLocal()
+    volunteers = session.query(Volunteer).all()
+    session.close()
+    return volunteers
+
