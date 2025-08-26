@@ -10,9 +10,8 @@ def cli():
 
 @cli.command()
 def initdb():
-    click.echo("Welcome to the Volunteer Coordination System!")
     Base.metadata.create_all(bind=engine)
-    click.echo("Database initialized!")
+    click.echo("Database initialized successfully!")
 
 @cli.command()
 @click.argument("name")
