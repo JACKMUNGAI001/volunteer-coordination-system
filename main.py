@@ -18,7 +18,7 @@ def initdb():
 @click.argument("email")
 def add_volunteer(name, email):
     volunteer = create_volunteer(name, email)
-    click.echo(f"Volunteer {volunteer.name} added.")
+    click.echo(f"Volunteer {volunteer.name} added with email {volunteer.email}.")
 
 @cli.command()
 @click.argument("title")
