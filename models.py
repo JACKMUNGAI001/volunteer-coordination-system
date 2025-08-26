@@ -23,6 +23,7 @@ class Event(Base):
     title = Column(String, nullable=False)
     description = Column(String)
     volunteers = relationship("VolunteerEvent", back_populates="event")
+
 class VolunteerEvent(Base):
     __tablename__ = "volunteer_events"
 
