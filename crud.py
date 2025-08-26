@@ -32,3 +32,9 @@ def list_volunteers():
     session.close()
     return volunteers
 
+def list_events():
+    session = SessionLocal()
+    events = session.query(Event).all()
+    session.close()
+    return events
+
