@@ -18,7 +18,14 @@ def initdb():
 def add_volunteer(name, email):
     volunteer = create_volunteer(name, email)
     click.echo(f"Volunteer {volunteer.name} added.")
-    
+
+@cli.command()
+@click.argument("title")
+@click.argument("description")
+def add_event(title, description):
+    event = create_event(title, description)
+    click.echo(f"Event {event.title} added.")
+   
    
 
 if __name__ == "__main__":
