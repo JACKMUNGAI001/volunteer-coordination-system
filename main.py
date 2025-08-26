@@ -37,6 +37,9 @@ def assign(volunteer_id, event_id):
 @cli.command()
 def volunteers():
     data = list_volunteers()
+    if not data:
+        click.echo("No volunteers found.")
+        return
     table = [(v.id, v.name, v.email) for v in data]
     click.echo(tabulate(table, headers=["ID", "Name", "Email"]))
 
@@ -45,7 +48,6 @@ def events():
     data = list_events()
     table = [(e.id, e.title, e.description) for e in data]
     click.echo(tabulate(table, headers=["ID", "Title", "Description"]))
-
 
 if __name__ == "__main__":
     cli()
