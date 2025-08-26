@@ -46,6 +46,9 @@ def volunteers():
 @cli.command()
 def events():
     data = list_events()
+    if not data:
+        click.echo("No events found.")
+        return
     table = [(e.id, e.title, e.description) for e in data]
     click.echo(tabulate(table, headers=["ID", "Title", "Description"]))
 
