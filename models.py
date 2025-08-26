@@ -23,3 +23,14 @@ class Event(Base):
     title = Column(String, nullable=False)
     description = Column(String)
     volunteers = relationship("VolunteerEvent", back_populates="event")
+class VolunteerEvent(Base):
+    __tablename__ = "volunteer_events"
+
+    id = Column(Integer, primary_key=True)
+    volunteer_id = Column(Integer, ForeignKey("volunteers.id"))
+    event_id = Column(Integer, ForeignKey("events.id"))
+
+    volunteer = relationship("Volunteer", back_populates="events")
+    event = relationship("Event", back_populates="volunteers")
+
+Volunteer.events = relationship("VolunteerEvent", back_populates="volunteer")
