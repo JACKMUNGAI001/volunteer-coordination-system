@@ -1,9 +1,14 @@
+import click
+from crud import create_volunteer, create_event, list_volunteers, list_events, assign_volunteer_to_event
 from models import Base, engine
 
-def main():
-    print("Welcome to the Volunteer Coordination System!")
+def cli():
+    pass
+
+def initdb():
+    click.echo("Welcome to the Volunteer Coordination System!")
     Base.metadata.create_all(bind=engine)
-    print("Database tables created!")
+    click.echo("Database initialized!")
 
 if __name__ == "__main__":
-    main()
+    cli()
