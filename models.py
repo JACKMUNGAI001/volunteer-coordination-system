@@ -14,3 +14,12 @@ class Volunteer(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
     email = Column(String, unique=True, nullable=False)
+
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
+class Event(Base):
+    __tablename__ = "events"
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, nullable=False)
+    description = Column(String)
+    volunteers = relationship("VolunteerEvent", back_populates="event")
