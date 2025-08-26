@@ -25,7 +25,14 @@ def add_volunteer(name, email):
 def add_event(title, description):
     event = create_event(title, description)
     click.echo(f"Event {event.title} added.")
-   
+
+@cli.command()
+@click.argument("volunteer_id", type=int)
+@click.argument("event_id", type=int)
+def assign(volunteer_id, event_id):
+    assign_volunteer_to_event(volunteer_id, event_id)
+    click.echo(f"Volunteer {volunteer_id} assigned to event {event_id}.")
+  
    
 
 if __name__ == "__main__":
