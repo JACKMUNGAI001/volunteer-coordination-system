@@ -25,7 +25,7 @@ def add_volunteer(name, email):
 @click.argument("description")
 def add_event(title, description):
     event = create_event(title, description)
-    click.echo(f"Event {event.title} added.")
+    click.echo(f"Event {event.title} created.")
 
 @cli.command()
 @click.argument("volunteer_id", type=int)
