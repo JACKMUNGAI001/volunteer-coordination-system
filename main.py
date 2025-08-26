@@ -39,7 +39,13 @@ def volunteers():
     data = list_volunteers()
     table = [(v.id, v.name, v.email) for v in data]
     click.echo(tabulate(table, headers=["ID", "Name", "Email"]))
- 
+
+@cli.command()
+def events():
+    data = list_events()
+    table = [(e.id, e.title, e.description) for e in data]
+    click.echo(tabulate(table, headers=["ID", "Title", "Description"]))
+
 
 if __name__ == "__main__":
     cli()
