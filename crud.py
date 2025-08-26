@@ -8,3 +8,12 @@ def create_volunteer(name, email):
     session.refresh(volunteer)
     session.close()
     return volunteer
+
+def create_event(title, description):
+    session = SessionLocal()
+    event = Event(title=title, description=description)
+    session.add(event)
+    session.commit()
+    session.refresh(event)
+    session.close()
+    return event
