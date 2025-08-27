@@ -1,7 +1,6 @@
 import click
 from crud import create_volunteer, create_event, list_volunteers, list_events, assign_volunteer_to_event
 from models import Base, engine
-from tabulate import tabulate
 
 @click.group()
 def cli():
